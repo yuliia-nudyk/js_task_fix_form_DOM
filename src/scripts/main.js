@@ -3,22 +3,18 @@
 const formInputs = document.querySelectorAll('input');
 
 const getSeparatedStr = (str) => {
-  const upperCaseLetters = [];
+  const upperCaseLetters = str.match(/[A-Z]/g);
 
-  for (const char of str) {
-    if (char === char.toUpperCase()) {
-      upperCaseLetters.push(char);
-    }
-  }
-
-  if (!upperCaseLetters.length) {
+  if (!upperCaseLetters) {
     return str;
   }
 
   let newStr = str;
 
   upperCaseLetters.forEach((letter) => {
-    newStr = newStr.split(letter).join(` ${letter}`);
+    const index = str.indexOf(letter);
+
+    newStr = str.slice(0, index) + ' ' + str.slice(index);
   });
 
   return newStr;
@@ -29,7 +25,7 @@ formInputs.forEach((input) => {
   const label = document.createElement('label');
 
   label.classList.add('field-label');
-  label.setAttribute('htmlFor', input.name);
+  label.setAttribute('for', input.name);
   label.textContent = nameOfInput;
 
   input.parentElement?.append(label);
