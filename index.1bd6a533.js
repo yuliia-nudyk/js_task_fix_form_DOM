@@ -1,0 +1,2 @@
+var e=document.querySelectorAll("input"),t=function(e){var t=e.match(/[A-Z]/g);if(!t)return e;var n=e;return t.forEach(function(t){var a=e.indexOf(t);n=e.slice(0,a)+" "+e.slice(a)}),n};e.forEach(function(e){var n,a=t(e.name),r=document.createElement("label");r.classList.add("field-label"),r.setAttribute("for",e.name),r.textContent=a,null===(n=e.parentElement)||void 0===n||n.append(r),e.placeholder=a[0].toUpperCase()+a.slice(1)});
+//# sourceMappingURL=index.1bd6a533.js.map
